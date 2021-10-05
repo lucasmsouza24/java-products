@@ -30,6 +30,11 @@ public class App  {
                     showAllProducts(inv);
                     break;
 
+                // insert new product
+                case "2":
+                    insertNewProduct(inv);
+                    break;
+
                 // get out the program
                 default:
                     break;
@@ -61,4 +66,30 @@ public class App  {
         }
     }
 
+    public static void insertNewProduct(Inventory inv) {
+        // instancing scanners
+        Scanner scs = new Scanner(System.in);
+        Scanner scd = new Scanner(System.in);
+        Scanner sci = new Scanner(System.in);
+
+        // product name
+        System.out.println("\nType product name: ");
+        String prodName = scs.nextLine();
+
+        // price
+        System.out.println("\nType product price: ");
+        Double price = scd.nextDouble();
+
+        // amount
+        System.out.println("\nType product amount: ");
+        Integer amount = sci.nextInt();
+
+        // instancing product and inserting into db
+        Product product = new Product(prodName, price, amount);
+        inv.addProduct(product);
+
+        // success message
+        System.out.println("\nNew product added!\n");
+
+    }
 }
