@@ -58,13 +58,13 @@ public class App  {
         System.out.println(String.format("\n%-5s  %-15s %-15s %-15s\n" + "-".repeat(50), "ID", "Product Name", "Price", "Amount"));
 
         // product format
-        String str = "[%s]    %-15s %-15s %-15s";
+        String str = "%-6s %-15s %-15s %-15s";
 
         // listing all products
         for (Product p : inv.getProducts()) {
             System.out.println(String.format(
                 str,
-                p.getId(),
+                "[" + p.getId() + "]",
                 p.getProdName(),
                 "R$ " + String.format("%.2f", p.getPrice()),
                 p.getAmount()));
