@@ -34,6 +34,11 @@ public class App  {
                 case "2":
                     insertNewProduct(inv);
                     break;
+                
+                // delete product
+                case "3":
+                    deleteProduct(inv);
+                    break;
 
                 // get out the program
                 default:
@@ -92,4 +97,24 @@ public class App  {
         System.out.println("\nNew product added!\n");
 
     }
+
+    public static void deleteProduct(Inventory inv) {
+
+        // instancing scanner
+        Scanner sci = new Scanner(System.in);
+
+        // input id
+        System.out.println("\nType product id: (0 show list, -1 exit)");
+        Integer id = sci.nextInt();
+
+        if (id == 0) {
+            // show all product ids
+            showAllProducts(inv);
+            deleteProduct(inv);
+        } else if (id != -1) {
+            // deleting product
+            inv.deleteProdById(id);
+            System.out.println(String.format("\ndeleted product [%d]", id));
+        }
+    }   
 }

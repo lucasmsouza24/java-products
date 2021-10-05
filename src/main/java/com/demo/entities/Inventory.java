@@ -36,6 +36,22 @@ public class Inventory {
         this.updateList();
     }
 
+
+    /**
+     * delete product by @param id
+     */
+    public void deleteProdById(Integer id) {
+        // delete sql
+        String sql = "DELETE FROM product WHERE id = %s";
+        sql = String.format(sql, id);
+
+        // querying
+        this.template.execute(sql);
+
+        // update list
+        this.updateList();
+    }
+
     /**
      * @return actual product list
      */
